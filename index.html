@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAN4104 Assignment Preparation (Elevator Pitch)</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdf7e0;
+  color: #333;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='190'%3E%3Cpath d='M80 20 L74 32 L68 32 L66 75 L70 87 L77 92 L77 102 L83 102 L83 92 L90 87 L94 75 L92 32 L86 32 Z' fill='none' stroke='%23C4956A' stroke-width='1.3' opacity='0.5'/%3E%3Cpath d='M77 102 L83 102 L83 108 L77 108 Z' fill='%23C4956A' opacity='0.3'/%3E%3Cline x1='80' y1='108' x2='80' y2='118' stroke='%23C4956A' stroke-width='1.8' opacity='0.4'/%3E%3Cline x1='70' y1='118' x2='90' y2='118' stroke='%23C4956A' stroke-width='1.8' opacity='0.4'/%3E%3Ccircle cx='80' cy='25' r='2.5' fill='%23C4956A' opacity='0.3'/%3E%3C/svg%3E") repeat;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 10% 85%, rgba(247,231,206,0.4) 3px, transparent 4px),
+    radial-gradient(circle at 25% 70%, rgba(247,231,206,0.3) 5px, transparent 6px),
+    radial-gradient(circle at 45% 90%, rgba(247,231,206,0.35) 4px, transparent 5px),
+    radial-gradient(circle at 65% 60%, rgba(247,231,206,0.25) 7px, transparent 8px),
+    radial-gradient(circle at 80% 80%, rgba(247,231,206,0.35) 3px, transparent 4px),
+    radial-gradient(circle at 90% 50%, rgba(247,231,206,0.3) 6px, transparent 7px),
+    radial-gradient(circle at 15% 40%, rgba(247,231,206,0.25) 4px, transparent 5px),
+    radial-gradient(circle at 50% 30%, rgba(247,231,206,0.2) 8px, transparent 9px),
+    radial-gradient(circle at 35% 15%, rgba(247,231,206,0.25) 5px, transparent 6px),
+    radial-gradient(circle at 60% 5%, rgba(247,231,206,0.2) 4px, transparent 5px),
+    radial-gradient(circle at 5% 55%, rgba(247,231,206,0.25) 6px, transparent 7px),
+    radial-gradient(circle at 95% 35%, rgba(247,231,206,0.3) 4px, transparent 7px),
+    radial-gradient(circle at 40% 55%, rgba(247,231,206,0.15) 10px, transparent 11px),
+    radial-gradient(circle at 70% 75%, rgba(247,231,206,0.2) 5px, transparent 6px),
+    radial-gradient(circle at 20% 25%, rgba(247,231,206,0.15) 7px, transparent 8px);
+  animation: bubbles 18s ease-in-out infinite alternate;
+}
+
+@keyframes bubbles {
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(-35px); opacity: 1; }
+}
+
+.page-header {
+  text-align: center;
+  padding: 20px 20px 0;
+  background: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  color: #4b0082;
+  margin-bottom: 4px;
+}
+
+.page-header p {
+  font-size: 16px;
+  color: #6a0dad;
+  margin-bottom: 4px;
+}
+
+.page-header .presented-by {
+  font-size: 14px;
+  color: #9370db;
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.banner {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+  animation: kenburns 10s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: #d8bfd8;
+  color: #555;
+  border-radius: 10px 10px 0 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn:hover {
+  background: #c9aec9;
+}
+
+.tab-btn.active {
+  background: white;
+  color: #6a0dad;
+}
+
+.tab-content {
+  display: none;
+  background: white;
+  padding: 30px;
+  border-radius: 0 10px 10px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  line-height: 1.7;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h1 {
+  font-size: 22px;
+  color: #4b0082;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #6a0dad;
+  margin: 20px 0 10px;
+}
+
+h3 {
+  font-size: 16px;
+  color: #8a2be2;
+  margin: 16px 0 8px;
+}
+
+.part-badge {
+  display: inline-block;
+  background: #4b0082;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 100px;
+  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+}
+
+.task-section {
+  margin-bottom: 30px;
+}
+
+.task-section ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.task-section li {
+  margin-bottom: 6px;
+}
+
+.task-box {
+  background: #f8f0ff;
+  border-left: 4px solid #9370db;
+  padding: 16px 20px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+  overflow: auto;
+}
+
+.task-box p { margin-bottom: 4px; }
+
+.expr-text {
+  background: #faf5ff;
+  border: 1px solid #e6d8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 10px 0;
+}
+
+.expr-text .speaker {
+  font-weight: 700;
+  color: #4b0082;
+  margin-right: 6px;
+}
+
+.word {
+  cursor: pointer;
+  border-bottom: 1px dotted rgba(147,112,219,0.3);
+  transition: background 0.15s, border-color 0.15s;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.word:hover {
+  background: rgba(147,112,219,0.12);
+  border-bottom-color: rgba(147,112,219,0.7);
+}
+
+.word.speaking {
+  background: rgba(147,112,219,0.2);
+  border-bottom-color: #9370db;
+  border-bottom-style: solid;
+}
+
+table.words {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+table.words th {
+  background: #9370db;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+table.words td {
+  padding: 10px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #e6d8f0;
+}
+
+table.words tr:nth-child(even) td {
+  background: #faf5ff;
+}
+
+.learning-objectives {
+  background: #f0f7ff;
+  border: 1px solid #b3d4fc;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.learning-objectives h3 {
+  color: #1a5276;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.learning-objectives p {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.learning-objectives ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.learning-objectives li {
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.btn-icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #9370db;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  vertical-align: middle;
+}
+
+.btn-icon:hover {
+  background: #7b5ec0;
+}
+
+.btn-icon.playing {
+  background: #e74c3c;
+}
+
+.btn-icon svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.utterance {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.utterance.block {
+  display: flex;
+  align-items: flex-start;
+}
+
+.controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  background: #f8f0ff;
+  border-radius: 8px;
+  border: 1px solid #e6d8f0;
+  flex-wrap: wrap;
+}
+
+.controls-bar label {
+  font-weight: 600;
+  color: #6a0dad;
+  font-size: 14px;
+}
+
+.controls-bar input[type="range"] {
+  flex: 1;
+  max-width: 160px;
+  accent-color: #9370db;
+}
+
+.controls-bar .speed-val {
+  font-weight: 700;
+  color: #4b0082;
+  min-width: 40px;
+  font-size: 14px;
+}
+
+.controls-bar .edge-note {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #9370db;
+  color: white;
+  transition: background 0.15s;
+}
+
+.ctrl-btn:hover {
+  background: #7b5ec0;
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.ctrl-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.separator {
+  width: 1px;
+  height: 28px;
+  background: #d8bfd8;
+  margin: 0 4px;
+}
+
+/* Accordion Styles */
+.accordion-controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.accordion-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #9370db;
+  color: white;
+  transition: background 0.2s;
+}
+
+.accordion-btn:hover {
+  background: #7b5ec0;
+}
+
+.accordion-item {
+  margin-bottom: 16px;
+  border: 1px solid #e6d8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6a0dad;
+  background: #f8f0ff;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.accordion-header:hover {
+  background: #ece0ff;
+}
+
+.accordion-header:focus {
+  outline: 2px solid #9370db;
+  outline-offset: -2px;
+}
+
+.accordion-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: #9370db;
+  transition: transform 0.3s;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: white;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 5000px;
+  transition: max-height 0.5s ease-in;
+}
+
+.accordion-content-inner {
+  padding: 20px;
+}
+
+.highlight-box {
+  background: #fef9e7;
+  border: 1px solid #f9e79f;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.highlight-box p { margin-bottom: 6px; }
+
+.cta-steps {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-step {
+  flex: 1;
+  min-width: 200px;
+  background: #eaf2f8;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.cta-step h3 { margin-top: 0; }
+.cta-step ul { margin-bottom: 0; }
+
+@media (max-width: 768px) {
+  .accordion-header {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  .accordion-content-inner {
+    padding: 16px;
+  }
+  .tab-btn { padding: 10px 12px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>LAN4104 Assignment Preparation (Elevator Pitch) <a href="https://canva.link/ilso5udh2olhprm" target="_blank" style="display:inline-block; background:#9370db; border:2px solid #6a0dad; color:white; padding:2px 12px; border-radius:15px; text-decoration:none; font-size:0.45em; font-weight:700; vertical-align:middle; margin-left:8px; transition:all 0.3s;" onmouseover="this.style.background='#7b5ec0'" onmouseout="this.style.background='#9370db'">Teaching PPT</a></h1>
+  <p class="presented-by">Presented by Rebecca Tang</p>
+  <div class="cn-toggle-wrap">
+    <span class="cn-script-toggle" id="cnScriptToggle">
+      <button type="button" class="cn-script-btn active" data-script="trad" onclick="setCNScript('trad')">繁體</button>
+      <button type="button" class="cn-script-btn" data-script="simp" onclick="setCNScript('simp')">简体</button>
+    </span>
+    <label class="cn-toggle">
+      <input type="checkbox" onchange="toggleAllCN(this.checked)">
+      <span>中文翻譯 / 中文翻译</span>
+    </label>
+  </div>
+</div>
+
+<div class="banner">
+  <img src="banner.jpeg" alt="Elevator Pitch — Deliver Your Idea. Capture Attention.">
+</div>
+
+<div class="container">
+  <div class="controls-bar">
+    <label>Speed:</label>
+    <input type="range" id="speedSlider" min="0.25" max="2.0" step="0.25" value="1.0">
+    <span class="speed-val" id="speedDisplay">1.0x</span>
+    <span class="edge-note" title="Uses Edge natural sounding voice in Microsoft Edge browser">Edge voice</span>
+    <div class="separator"></div>
+    <label>Voice:</label>
+    <select id="voiceSelect" style="padding:5px 10px; border-radius:6px; border:1px solid #9370db; background:white; color:#4b0082; font-weight:600;">
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+    </select>
+    <div class="separator"></div>
+    <button class="ctrl-btn" id="playAllBtn" onclick="playAll()"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Play All</button>
+    <button class="ctrl-btn" id="pauseAllBtn" onclick="pauseAll()" disabled><svg viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/></svg> Pause</button>
+    <button class="ctrl-btn" id="stopAllBtn" onclick="stopAll()" disabled><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg> Stop</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">Hook</button>
+    <button class="tab-btn" onclick="switchTab(1)">Problem</button>
+    <button class="tab-btn" onclick="switchTab(2)">Solution</button>
+    <button class="tab-btn" onclick="switchTab(3)">Unique Value Proposition</button>
+    <button class="tab-btn" onclick="switchTab(4)">Call to Action</button>
+    <button class="tab-btn" onclick="switchTab(5)">CA Sample (IT)</button>
+  </div>
+
+  <!-- ================= HOOK ================= -->
+  <div class="tab-content active" id="tab-0">
+    <span class="part-badge">HOOK</span>
+    <h1>Language for Elevator Pitch</h1>
+
+    <div class="learning-objectives">
+      <h3>Learning Objectives</h3>
+      <p>By the end of this section, you will be able to:</p>
+      <ul>
+        <li>engage the audience by asking personalised questions</li>
+        <li>immerse the audience in a vivid scenario using scene starters</li>
+        <li>use appropriate language to hook your listener at the start of an elevator pitch</li>
+      </ul>
+    </div>
+
+    <div class="accordion-controls">
+      <button class="accordion-btn" id="expandAll">Expand All</button>
+      <button class="accordion-btn" id="collapseAll">Collapse All</button>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span>1. Asking Personalised Questions</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <p>Apart from the four techniques introduced in Unit 2 (surprising facts/statistics, compelling questions, vivid stories, and citing quotations), you can engage the audience by asking personalised questions to connect to their experiences or challenges.</p>
+
+              <div class="task-box">
+                <p><strong>Examples:</strong></p>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Are you tired of rough prototypes failing to capture the essence of your design?', this)"></button><span class="spoken">"Are you tired of rough prototypes failing to capture the essence of your design?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Have you ever wondered why some exhibition displays captivate visitors in seconds?', this)"></button><span class="spoken">"Have you ever wondered why some exhibition displays captivate visitors in seconds?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('How many of you have experienced screen-to-print colour mismatches ruining your final pieces?', this)"></button><span class="spoken">"How many of you have experienced screen-to-print colour mismatches ruining your final pieces?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Can you recall a time when hidden bugs crashed your game prototype during a playtest?', this)"></button><span class="spoken">"Can you recall a time when hidden bugs crashed your game prototype during a playtest?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Are you tired of joining video calls that freeze at the most critical moments?', this)"></button><span class="spoken">"Are you tired of joining video calls that freeze at the most critical moments?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Have you ever wondered what prevents the entire Internet from collapsing?', this)"></button><span class="spoken">"Have you ever wondered what prevents the entire Internet from collapsing?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('How many of you have experienced irritating bugs in newly developed games?', this)"></button><span class="spoken">"How many of you have experienced irritating bugs in newly developed games?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Can you recall a time when a website failed you during an urgent transaction?', this)"></button><span class="spoken">"Can you recall a time when a website failed you during an urgent transaction?"</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>2. Placing Your Audience in the Scene</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <p>Use scene starters to vividly immerse the audience in a scenario and spark their imagination.</p>
+
+              <div class="task-box">
+                <p><strong>Examples:</strong></p>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Think about a performer with sensory issues putting on a sequinned costume that scratches all night.', this)"></button><span class="spoken">"Think about a performer with sensory issues putting on a sequinned costume that scratches all night."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Imagine spending weeks on a costume collection, only to find that the fabric cannot withstand the performers\u2019 dynamic stage movements.', this)"></button><span class="spoken">"Imagine spending weeks on a costume collection, only to find that the fabric cannot withstand the performers' dynamic stage movements."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Envision yourself unable to meet client expectations due to gaps between concept and execution.', this)"></button><span class="spoken">"Envision yourself unable to meet client expectations due to gaps between concept and execution."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Picture yourself trying to protect your organisation\u2019s systems from ever-evolving cyber threats.', this)"></button><span class="spoken">"Picture yourself trying to protect your organisation's systems from ever-evolving cyber threats."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Remember excitedly downloading a new app, only to have it crash the moment you opened it?', this)"></button><span class="spoken">"Remember excitedly downloading a new app, only to have it crash the moment you opened it?"</span></span></div>
+              </div>
+
+              <div class="oral-practice">
+                <button class="oral-practice-toggle" onclick="toggleOralPractice(this)">
+                  <strong>Oral Practice:</strong>
+                  <span class="toggle-icon">+</span>
+                </button>
+                <div class="oral-practice-content">
+                  <p>Work in pairs. Choose a personalised question or scene starter above to hook your partner. Then switch roles.</p>
+                  <p>You have 5 minutes to practise.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PROBLEM ================= -->
+  <div class="tab-content" id="tab-1">
+    <span class="part-badge">PROBLEM</span>
+    <h1>Relating to the Audience</h1>
+
+    <div class="learning-objectives">
+      <h3>Learning Objectives</h3>
+      <p>By the end of this section, you will be able to:</p>
+      <ul>
+        <li>use useful verbs and nouns to describe problems</li>
+        <li>use present participle clauses to emphasise negative consequences</li>
+        <li>relate to the audience by acknowledging shared struggles</li>
+      </ul>
+    </div>
+
+    <div class="accordion-controls">
+      <button class="accordion-btn">Expand All</button>
+      <button class="accordion-btn">Collapse All</button>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span>Useful Phrases</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <table class="words">
+                <tr><th>Verb</th><th>Noun</th></tr>
+                <tr><td>struggle (with)</td><td>challenge</td></tr>
+                <tr><td>grapple (with)</td><td>concern</td></tr>
+                <tr><td>face</td><td>obstacle</td></tr>
+                <tr><td>encounter</td><td>difficulty</td></tr>
+                <tr><td>deal (with)</td><td>struggle</td></tr>
+              </table>
+
+              <div class="task-box">
+                <p><strong>Sentence Starters:</strong></p>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Many of us have experienced something.', this)"></button><span class="spoken">"Many of us have experienced ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Time and again, we find ourselves something.', this)"></button><span class="spoken">"Time and again, we find ourselves ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('We have all faced moments when something.', this)"></button><span class="spoken">"We've all faced moments when ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('It is a familiar situation when something.', this)"></button><span class="spoken">"It's a familiar situation when ..."</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Using Present Participle Clauses</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <p>These clauses emphasise the negative consequences of a problem.</p>
+
+              <div class="highlight-box">
+                <p><strong>Problem:</strong> "...designers are stuck in endless email chains, painful revisions, and missed deadlines,"</p>
+                <p><strong>Consequence:</strong> <span class="utterance"><button class="btn-icon" onclick="speakText('leading to wasted time, money, and creativity.', this)"></button><span class="spoken">leading to / resulting in / bringing about / giving rise to wasted time, money, and creativity.</span></span></p>
+              </div>
+
+              <div class="highlight-box">
+                <p><strong>Problem:</strong> "...many companies still operate with outdated cybersecurity systems,"</p>
+                <p><strong>Consequence:</strong> <span class="utterance"><button class="btn-icon" onclick="speakText('creating a greater risk of cyber attacks that could disrupt operations.', this)"></button><span class="spoken">creating a greater risk of cyber attacks that could disrupt operations.</span></span></p>
+              </div>
+
+              <div class="highlight-box">
+                <p><strong>Problem:</strong> "...large language models (LLMs) may produce inappropriate or offensive responses,"</p>
+                <p><strong>Consequence:</strong> <span class="utterance"><button class="btn-icon" onclick="speakText('generating safety concerns for users and platforms.', this)"></button><span class="spoken">generating safety concerns for users and platforms.</span></span></p>
+              </div>
+
+              <div class="oral-practice">
+                <button class="oral-practice-toggle" onclick="toggleOralPractice(this)">
+                  <strong>Oral Practice:</strong>
+                  <span class="toggle-icon">+</span>
+                </button>
+                <div class="oral-practice-content">
+                  <p>Create your own problem + consequence pair using a present participle clause. Share with your partner.</p>
+                  <p><strong>Pattern:</strong> [Problem], leading to / resulting in / creating [Consequence].</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SOLUTION ================= -->
+  <div class="tab-content" id="tab-2">
+    <span class="part-badge">SOLUTION</span>
+    <h1>Highlighting Benefits</h1>
+
+    <div class="learning-objectives">
+      <h3>Learning Objectives</h3>
+      <p>By the end of this section, you will be able to:</p>
+      <ul>
+        <li>highlight features, functions, and benefits of a solution</li>
+        <li>use positive adjectives to make design or IT solutions more persuasive</li>
+        <li>use key expressions to present solutions effectively</li>
+      </ul>
+    </div>
+
+    <div class="accordion-controls">
+      <button class="accordion-btn">Expand All</button>
+      <button class="accordion-btn">Collapse All</button>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span>Key Expressions</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <div class="task-box">
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Real-time analytics allow or enable you to process data instantly.', this)"></button><span class="spoken">"Real-time analytics allow/enable you to process data instantly."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('AI-driven analysis provides you with accurate predictions.', this)"></button><span class="spoken">"AI-driven analysis provides you with accurate predictions."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Accurate data-driven predictions give your business a competitive edge.', this)"></button><span class="spoken">"Accurate data-driven predictions give your business a competitive edge."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Predictive modelling ensures that you can forecast trends and make informed decisions.', this)"></button><span class="spoken">"Predictive modelling ensures that you can forecast trends and make informed decisions."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('The platform allows or enables you to collaborate with cross-disciplinary teams effortlessly.', this)"></button><span class="spoken">"The platform allows/enables you to collaborate with cross-disciplinary teams effortlessly."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('The dual approach makes teamwork efficient and seamless.', this)"></button><span class="spoken">"The dual approach makes teamwork efficient and seamless."</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Positive Adjectives for Design Solutions</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <table class="words">
+                <tr><th>Category</th><th>Adjectives</th></tr>
+                <tr><td>Performance &amp; Quality</td><td><span class="word" onclick="speakWord('Durable', this)">Durable</span>, <span class="word" onclick="speakWord('High-quality', this)">High-quality</span>, <span class="word" onclick="speakWord('Reliable', this)">Reliable</span>, <span class="word" onclick="speakWord('Well-crafted', this)">Well-crafted</span></td></tr>
+                <tr><td>User Experience</td><td><span class="word" onclick="speakWord('Accessible', this)">Accessible</span>, <span class="word" onclick="speakWord('Engaging', this)">Engaging</span>, <span class="word" onclick="speakWord('Intuitive', this)">Intuitive</span>, <span class="word" onclick="speakWord('Personalised', this)">Personalised</span>, <span class="word" onclick="speakWord('User-friendly', this)">User-friendly</span></td></tr>
+                <tr><td>Innovation &amp; Strategy</td><td><span class="word" onclick="speakWord('Creative', this)">Creative</span>, <span class="word" onclick="speakWord('Forward-looking', this)">Forward-looking</span>, <span class="word" onclick="speakWord('Imaginative', this)">Imaginative</span>, <span class="word" onclick="speakWord('Innovative', this)">Innovative</span>, <span class="word" onclick="speakWord('Original', this)">Original</span>, <span class="word" onclick="speakWord('Visionary', this)">Visionary</span></td></tr>
+                <tr><td>Cost &amp; Value</td><td><span class="word" onclick="speakWord('Affordable', this)">Affordable</span>, <span class="word" onclick="speakWord('Competitive', this)">Competitive</span>, <span class="word" onclick="speakWord('Cost-effective', this)">Cost-effective</span>, <span class="word" onclick="speakWord('Impactful', this)">Impactful</span>, <span class="word" onclick="speakWord('Meaningful', this)">Meaningful</span>, <span class="word" onclick="speakWord('Sustainable', this)">Sustainable</span></td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Positive Adjectives for IT Solutions</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <table class="words">
+                <tr><th>Category</th><th>Adjectives</th></tr>
+                <tr><td>Performance &amp; Quality</td><td><span class="word" onclick="speakWord('High-performance', this)">High-performance</span>, <span class="word" onclick="speakWord('Optimised', this)">Optimised</span>, <span class="word" onclick="speakWord('Reliable', this)">Reliable</span>, <span class="word" onclick="speakWord('Responsive', this)">Responsive</span>, <span class="word" onclick="speakWord('Robust', this)">Robust</span>, <span class="word" onclick="speakWord('Stable', this)">Stable</span></td></tr>
+                <tr><td>User Experience</td><td><span class="word" onclick="speakWord('Accessible', this)">Accessible</span>, <span class="word" onclick="speakWord('Effortless', this)">Effortless</span>, <span class="word" onclick="speakWord('Engaging', this)">Engaging</span>, <span class="word" onclick="speakWord('Intuitive', this)">Intuitive</span>, <span class="word" onclick="speakWord('Personalised', this)">Personalised</span>, <span class="word" onclick="speakWord('User-friendly', this)">User-friendly</span></td></tr>
+                <tr><td>Innovation &amp; Strategy</td><td><span class="word" onclick="speakWord('Advanced', this)">Advanced</span>, <span class="word" onclick="speakWord('AI-powered', this)">AI-powered</span>, <span class="word" onclick="speakWord('Cutting-edge', this)">Cutting-edge</span>, <span class="word" onclick="speakWord('Data-driven', this)">Data-driven</span>, <span class="word" onclick="speakWord('Innovative', this)">Innovative</span>, <span class="word" onclick="speakWord('Intelligent', this)">Intelligent</span>, <span class="word" onclick="speakWord('Next-generation', this)">Next-generation</span>, <span class="word" onclick="speakWord('Original', this)">Original</span>, <span class="word" onclick="speakWord('Transformative', this)">Transformative</span></td></tr>
+                <tr><td>Security &amp; Value</td><td><span class="word" onclick="speakWord('Affordable', this)">Affordable</span>, <span class="word" onclick="speakWord('Competitive', this)">Competitive</span>, <span class="word" onclick="speakWord('Cost-effective', this)">Cost-effective</span>, <span class="word" onclick="speakWord('Flexible', this)">Flexible</span>, <span class="word" onclick="speakWord('Impactful', this)">Impactful</span>, <span class="word" onclick="speakWord('Influential', this)">Influential</span>, <span class="word" onclick="speakWord('Meaningful', this)">Meaningful</span>, <span class="word" onclick="speakWord('Modular', this)">Modular</span>, <span class="word" onclick="speakWord('Proactive', this)">Proactive</span>, <span class="word" onclick="speakWord('Secure', this)">Secure</span></td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= UNIQUE VALUE PROPOSITION ================= -->
+  <div class="tab-content" id="tab-3">
+    <span class="part-badge">UVP</span>
+    <h1>Unique Value Proposition</h1>
+
+    <div class="learning-objectives">
+      <h3>Learning Objectives</h3>
+      <p>By the end of this section, you will be able to:</p>
+      <ul>
+        <li>describe what makes your solution unique</li>
+        <li>emphasise the benefits to the audience</li>
+        <li>use key expressions to articulate your unique value proposition</li>
+      </ul>
+    </div>
+
+    <div class="accordion-controls">
+      <button class="accordion-btn">Expand All</button>
+      <button class="accordion-btn">Collapse All</button>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span>Describing the Unique Value Proposition</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <div class="task-box">
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('What makes something unique is something.', this)"></button><span class="spoken">"What makes ... unique is ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('What is special is something.', this)"></button><span class="spoken">"What's special is ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('What really sets something apart is something.', this)"></button><span class="spoken">"What really sets ... apart is ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('What distinguishes something is something.', this)"></button><span class="spoken">"What distinguishes ... is ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Unlike other options, something.', this)"></button><span class="spoken">"Unlike other options, ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Our product is the only one that something.', this)"></button><span class="spoken">"Our product is the only one that ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Our unique value lies in something.', this)"></button><span class="spoken">"Our unique value ... lies in ..."</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Emphasising the Benefits to the Audience</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <div class="task-box">
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('You will benefit from something.', this)"></button><span class="spoken">"You'll benefit from ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('You will find that something.', this)"></button><span class="spoken">"You'll find that ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('I am confident that you will gain something.', this)"></button><span class="spoken">"I'm confident that you'll gain ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('It is designed to help you something.', this)"></button><span class="spoken">"It's designed to help you ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Here is how this benefits you.', this)"></button><span class="spoken">"Here's how this benefits you ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('This product or service features something.', this)"></button><span class="spoken">"This product/service features ..."</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Enjoy the advantage of something.', this)"></button><span class="spoken">"Enjoy the advantage of ..."</span></span></div>
+              </div>
+
+              <div class="oral-practice">
+                <button class="oral-practice-toggle" onclick="toggleOralPractice(this)">
+                  <strong>Oral Practice:</strong>
+                  <span class="toggle-icon">+</span>
+                </button>
+                <div class="oral-practice-content">
+                  <p>Choose a design or IT solution and use the expressions above to describe its unique value and benefits. Work in pairs and take turns.</p>
+                  <p>You have 5 minutes to practise.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CALL TO ACTION ================= -->
+  <div class="tab-content" id="tab-4">
+    <span class="part-badge">CTA</span>
+    <h1>Call to Action</h1>
+
+    <div class="learning-objectives">
+      <h3>Learning Objectives</h3>
+      <p>By the end of this section, you will be able to:</p>
+      <ul>
+        <li>use rhetorical questions to prompt reflection</li>
+        <li>use imperative sentences to urge the audience to act</li>
+        <li>end a pitch politely by expressing thanks</li>
+      </ul>
+    </div>
+
+    <div class="accordion-controls">
+      <button class="accordion-btn">Expand All</button>
+      <button class="accordion-btn">Collapse All</button>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span>Step 1: Rhetorical Questions</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <div class="task-box">
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('What if something?', this)"></button><span class="spoken">"What if ...?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Ready to something?', this)"></button><span class="spoken">"Ready to ...?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Struggling to something?', this)"></button><span class="spoken">"Struggling to ...?"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Tired of something?', this)"></button><span class="spoken">"Tired of ...?"</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Step 2: Imperative</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <div class="task-box">
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Get our new something now and start making something!', this)"></button><span class="spoken">"Get our new ... now and start making ...!"</span></span></div>
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Adopt our latest something today and enjoy something!', this)"></button><span class="spoken">"Adopt our latest ... today and enjoy ...!"</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Step 3: Expressing Thanks</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="task-section">
+              <div class="task-box">
+                <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Thank you.', this)"></button><span class="spoken">"Thank you."</span></span></div>
+              </div>
+
+              <div class="oral-practice">
+                <button class="oral-practice-toggle" onclick="toggleOralPractice(this)">
+                  <strong>Oral Practice:</strong>
+                  <span class="toggle-icon">+</span>
+                </button>
+                <div class="oral-practice-content">
+                  <p>Combine all three steps to create a complete call to action for your elevator pitch. Work in pairs.</p>
+                  <p><strong>Pattern:</strong> [Rhetorical Question] + [Imperative] + Thank you.</p>
+                  <p>You have 5 minutes to practise.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CA SAMPLE ================= -->
+  <div class="tab-content" id="tab-5">
+    <span class="part-badge">CA SAMPLE</span>
+    <h1>CA Sample Script — DataInsight Elevator Pitch</h1>
+    <img src="datainsight.jpg" alt="DataInsight — AI-powered data transformation partner" style="width:100%; max-width:800px; border-radius:10px; margin:16px 0; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+
+    <div class="learning-objectives">
+      <h3>Overview</h3>
+      <p>This is a sample elevator pitch script for the CA assessment. It demonstrates how to structure a pitch using the Hook, Problem, Solution, UVP, and Call to Action sections you have learned.</p>
+    </div>
+
+    <div class="task-section">
+      <h3>Self-introduction</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Hello, everyone. I\\'m Tony from Synix. At Synix, our mission is to empower businesses to transform data into actionable insights for informed decision-making.', this)"></button><span class="spoken">"Hello, everyone. I'm Tony from Synix. At Synix, our mission is to empower businesses to transform data into actionable insights for informed decision-making."</span></span></div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>Hook</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Have you, like many other business owners, struggled to extract meaningful insights from vast amounts of data?', this)"></button><span class="spoken">"Have you, like many other business owners, struggled to extract meaningful insights from vast amounts of data?"</span></span></div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>Problem statement</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('The frustration of seeing valuable data sit idle knowing it could unlock business opportunities and drive success—it\\'s an obstacle we know all too well.', this)"></button><span class="spoken">"The frustration of seeing valuable data sit idle knowing it could unlock business opportunities and drive success—it's an obstacle we know all too well."</span></span></div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>Description of pain points using emotional appeal</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Many of us find it challenging to tap into the potential of underutilised data. Without effective analysis tools, we may overlook key patterns and trends, leading to missed opportunities, inefficient decisions, and lost competitive advantages.', this)"></button><span class="spoken">"Many of us find it challenging to tap into the potential of underutilised data. Without effective analysis tools, we may overlook key patterns and trends, leading to missed opportunities, inefficient decisions, and lost competitive advantages."</span></span></div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>Solution</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('To address these challenges, I\\'m excited to introduce DataInsight, AI-powered software that makes data transformation effortless. Its real-time analytics enable instant data processing, while its predictive modelling helps you forecast trends and make informed decisions.', this)"></button><span class="spoken">"To address these challenges, I'm excited to introduce DataInsight, AI-powered software that makes data transformation effortless. Its real-time analytics enable instant data processing, while its predictive modelling helps you forecast trends and make informed decisions."</span></span></div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>Unique value proposition (UVP)</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('What makes DataInsight unique is its advanced AI-driven analysis. By rapidly processing complex datasets, it delivers accurate predictions, empowering your business with a competitive edge through data-driven decisions.', this)"></button><span class="spoken">"What makes DataInsight unique is its advanced AI-driven analysis. By rapidly processing complex datasets, it delivers accurate predictions, empowering your business with a competitive edge through data-driven decisions."</span></span></div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>UVP — Why it is valuable to the audience</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('With DataInsight, I\\'m confident that you will uncover hidden insights and achieve impactful outcomes.', this)"></button><span class="spoken">"With DataInsight, I'm confident that you will uncover hidden insights and achieve impactful outcomes."</span></span></div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>Call to action</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Ready to turn your data into a powerful asset? Adopt DataInsight now and drive business growth.', this)"></button><span class="spoken">"Ready to turn your data into a powerful asset? Adopt DataInsight now and drive business growth."</span></span></div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>Closing</h3>
+      <div class="task-box">
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Thank you.', this)"></button><span class="spoken">"Thank you."</span></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="audio-data.js"></script>
+<script>
+let synth = window.speechSynthesis;
+let currentWordEl = null;
+let currentWordAudio = null;
+
+function switchTab(index) {
+  if (typeof stopAll === 'function') stopAll();
+  const contents = document.querySelectorAll('.tab-content');
+  const buttons = document.querySelectorAll('.tab-btn');
+  contents.forEach(c => c.classList.remove('active'));
+  buttons.forEach(b => b.classList.remove('active'));
+  contents[index].classList.add('active');
+  buttons[index].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function wrapWordsInEl(el) {
+  el.normalize();
+  Array.from(el.childNodes).forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const words = node.textContent.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      words.forEach(w => {
+        if (w.trim() === '') {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          const wordSpan = document.createElement('span');
+          wordSpan.className = 'word';
+          wordSpan.textContent = w;
+          wordSpan.addEventListener('click', function(e) {
+            e.stopPropagation();
+            speakWord(w.replace(/[^a-zA-Z'-]/g, ''), this);
+          });
+          frag.appendChild(wordSpan);
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      wrapWordsInEl(node);
+    }
+  });
+}
+
+function initWordClick() {
+  document.querySelectorAll('.expr-text .spoken, .task-box .spoken, .task-section .spoken').forEach(wrapWordsInEl);
+}
+
+function getEdgeVoice(gender) {
+  const voices = synth.getVoices();
+  const femaleBritish = ['Microsoft Sonia', 'Microsoft Zira', 'en-GB-SoniaNeural', 'en-GB-Female'];
+  const maleBritish = ['Microsoft Ryan', 'Microsoft David', 'en-GB-RyanNeural', 'en-GB-Male'];
+  if (gender === 'male') {
+    for (const name of maleBritish) {
+      const found = voices.find(v => v.name && v.name.includes(name));
+      if (found) return found;
+    }
+  } else if (gender === 'female') {
+    for (const name of femaleBritish) {
+      const found = voices.find(v => v.name && v.name.includes(name));
+      if (found) return found;
+    }
+  }
+  for (const name of [...femaleBritish, ...maleBritish]) {
+    const found = voices.find(v => v.name && v.name.includes(name));
+    if (found) return found;
+  }
+  return voices.find(v => v.lang && v.lang.startsWith('en-GB')) ||
+         voices.find(v => v.lang && v.lang.startsWith('en')) || null;
+}
+
+function speakWord(word, el, gender) {
+  if (!word) return;
+  const selectedGender = gender || document.getElementById('voiceSelect').value || 'female';
+  const key = word + '|' + selectedGender;
+  const b64 = window.AUDIO_DATA && window.AUDIO_DATA.words[key];
+
+  if (currentWordEl === el && (currentWordAudio || synth.speaking)) {
+    if (currentWordAudio) { currentWordAudio.pause(); currentWordAudio = null; }
+    if (synth.speaking) synth.cancel();
+    el.classList.remove('speaking');
+    currentWordEl = null;
+    return;
+  }
+  if (currentWordAudio) { currentWordAudio.pause(); currentWordAudio = null; }
+  if (synth.speaking) synth.cancel();
+  if (currentWordEl) currentWordEl.classList.remove('speaking');
+  if (currentAudio) { currentAudio.pause(); if (currentBtn) resetBtn(currentBtn); currentAudio = null; currentBtn = null; }
+  if (isPlayingAll) stopAll();
+
+  el.classList.add('speaking');
+  currentWordEl = el;
+
+  if (b64) {
+    const audio = new Audio('data:audio/mp3;base64,' + b64);
+    currentWordAudio = audio;
+    audio.onended = function() { el.classList.remove('speaking'); if (currentWordEl === el) currentWordEl = null; currentWordAudio = null; };
+    audio.onerror = function() { el.classList.remove('speaking'); if (currentWordEl === el) currentWordEl = null; currentWordAudio = null; speakWordFallback(word, el, selectedGender); };
+    audio.play();
+    return;
+  }
+  speakWordFallback(word, el, selectedGender);
+}
+
+function speakWordFallback(word, el, selectedGender) {
+  const utter = new SpeechSynthesisUtterance(word);
+  utter.rate = 0.85;
+  utter.pitch = 1;
+  const v = getEdgeVoice(selectedGender);
+  if (v) utter.voice = v;
+  utter.onend = function() { el.classList.remove('speaking'); if (currentWordEl === el) currentWordEl = null; };
+  utter.onerror = function() { el.classList.remove('speaking'); if (currentWordEl === el) currentWordEl = null; };
+  synth.speak(utter);
+}
+
+function speakText(text, btn, gender) {
+  const selectedGender = gender || document.getElementById('voiceSelect').value || 'female';
+  const key = text + '|' + selectedGender;
+  const b64 = window.AUDIO_DATA && window.AUDIO_DATA.phrases[key];
+
+  if (currentWordAudio) { currentWordAudio.pause(); currentWordAudio = null; }
+  if (synth.speaking) synth.cancel();
+  if (currentWordEl) { currentWordEl.classList.remove('speaking'); currentWordEl = null; }
+
+  if (b64) {
+    playAudio('data:audio/mp3;base64,' + b64, btn);
+    return;
+  }
+
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.rate = 0.85;
+  utter.pitch = 1;
+  const v = getEdgeVoice(selectedGender);
+  if (v) utter.voice = v;
+  btn.classList.add('playing');
+  btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="7" y="5" width="4" height="14"/><rect x="13" y="5" width="4" height="14"/></svg>';
+  utter.onend = function() {
+    btn.classList.remove('playing');
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+  };
+  utter.onerror = function() {
+    btn.classList.remove('playing');
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+  };
+  synth.speak(utter);
+}
+
+function playAudio(src, btn) {
+  if (isPlayingAll) stopAll();
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    if (currentBtn && currentBtn !== btn) resetBtn(currentBtn);
+    if (currentBtn === btn) {
+      currentAudio = null;
+      currentBtn = null;
+      return;
+    }
+  }
+  currentAudio = new Audio(src);
+  currentAudio.playbackRate = getSpeed();
+  currentBtn = btn;
+  setBtnPause(btn);
+  currentAudio.play();
+  currentAudio.addEventListener('ended', function() {
+    resetBtn(btn);
+    currentAudio = null;
+    currentBtn = null;
+  });
+}
+
+let currentAudio = null;
+let currentBtn = null;
+let playlist = [];
+let playlistIdx = 0;
+let isPlayingAll = false;
+
+function getSpeed() {
+  return parseFloat(document.getElementById('speedSlider').value);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.getElementById('speedSlider');
+  slider.addEventListener('input', function() {
+    document.getElementById('speedDisplay').textContent = this.value + 'x';
+    if (currentAudio && !currentAudio.paused) {
+      currentAudio.playbackRate = getSpeed();
+    }
+  });
+});
+
+function resetBtn(btn) {
+  if (!btn) return;
+  btn.classList.remove('playing');
+  if (btn.classList.contains('btn-icon')) {
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+  }
+}
+
+function setBtnPause(btn) {
+  btn.classList.add('playing');
+  if (btn.classList.contains('btn-icon')) {
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="7" y="5" width="4" height="14"/><rect x="13" y="5" width="4" height="14"/></svg>';
+  }
+}
+
+function visibleBtns() {
+  const active = document.querySelector('.tab-content.active');
+  return active ? active.querySelectorAll('.btn-icon') : [];
+}
+
+function playAll() {
+  if (isPlayingAll) return;
+  isPlayingAll = true;
+  document.getElementById('playAllBtn').disabled = true;
+  document.getElementById('pauseAllBtn').disabled = false;
+  document.getElementById('stopAllBtn').disabled = false;
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    if (currentBtn) resetBtn(currentBtn);
+  }
+  playlist = [];
+  visibleBtns().forEach(b => {
+    const text = b.closest('.utterance') ? b.closest('.utterance').querySelector('.spoken') : null;
+    playlist.push({ text: text ? text.textContent : '', btn: b });
+  });
+  playlistIdx = 0;
+  playNextInPlaylist();
+}
+
+function playNextInPlaylist() {
+  if (!isPlayingAll || playlistIdx >= playlist.length) {
+    stopAll();
+    return;
+  }
+  const item = playlist[playlistIdx];
+  const btn = item.btn;
+  if (currentAudio) {
+    currentAudio.pause();
+    if (currentBtn) resetBtn(currentBtn);
+  }
+  const selectedGender = document.getElementById('voiceSelect').value || 'female';
+  const utter = new SpeechSynthesisUtterance(item.text);
+  utter.rate = getSpeed();
+  utter.pitch = 1;
+  const v = getEdgeVoice(selectedGender);
+  if (v) utter.voice = v;
+  currentBtn = btn;
+  setBtnPause(btn);
+  utter.onend = function() {
+    resetBtn(btn);
+    playlistIdx++;
+    if (isPlayingAll && playlistIdx < playlist.length) {
+      playNextInPlaylist();
+    } else {
+      stopAll();
+    }
+  };
+  utter.onerror = function() {
+    resetBtn(btn);
+    playlistIdx++;
+    if (isPlayingAll && playlistIdx < playlist.length) {
+      playNextInPlaylist();
+    } else {
+      stopAll();
+    }
+  };
+  synth.speak(utter);
+}
+
+function pauseAll() {
+  if (synth.speaking) synth.pause();
+  document.getElementById('pauseAllBtn').disabled = true;
+  document.getElementById('playAllBtn').disabled = false;
+  document.getElementById('playAllBtn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Resume';
+}
+
+function stopAll() {
+  isPlayingAll = false;
+  if (synth.speaking) synth.cancel();
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+  }
+  if (currentBtn) {
+    resetBtn(currentBtn);
+    currentBtn = null;
+  }
+  document.getElementById('playAllBtn').disabled = false;
+  document.getElementById('playAllBtn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Play All';
+  document.getElementById('pauseAllBtn').disabled = true;
+  document.getElementById('stopAllBtn').disabled = true;
+}
+
+function initAccordion() {
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    if (header) {
+      header.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    }
+  });
+  document.querySelectorAll('.accordion-controls').forEach(controls => {
+    const expandBtn = controls.querySelector('.accordion-btn:first-child');
+    const collapseBtn = controls.querySelector('.accordion-btn:last-child');
+    if (expandBtn) {
+      expandBtn.addEventListener('click', () => {
+        controls.parentElement.querySelectorAll('.accordion-item').forEach(item => {
+          item.classList.add('active');
+        });
+      });
+    }
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', () => {
+        controls.parentElement.querySelectorAll('.accordion-item').forEach(item => {
+          item.classList.remove('active');
+        });
+      });
+    }
+  });
+}
+
+function toggleOralPractice(btn) {
+  const practice = btn.closest('.oral-practice');
+  practice.classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (synth.getVoices().length) initWordClick();
+  else synth.addEventListener('voiceschanged', initWordClick, { once: true });
+  initAccordion();
+});
+</script>
+
+<style>
+.oral-practice {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.oral-practice-toggle {
+  width: 100%;
+  padding: 12px 20px;
+  background: #f8f8f8;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.oral-practice-toggle:hover {
+  background: #f0f0f0;
+}
+
+.toggle-icon {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  transition: transform 0.3s;
+}
+
+.oral-practice-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 20px;
+}
+
+.oral-practice.open .oral-practice-content {
+  max-height: 500px;
+  transition: max-height 0.5s ease-in;
+  padding: 12px 20px;
+}
+
+.oral-practice.open .toggle-icon {
+  transform: rotate(45deg);
+}
+
+.oral-practice p {
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.oral-practice ul {
+  padding-left: 20px;
+  margin: 8px 0 0 0;
+}
+
+.oral-practice li {
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.cn-toggle-wrap {
+  text-align: right;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cn-script-toggle {
+  display: none;
+  align-items: center;
+  gap: 2px;
+  background: #f0e6f7;
+  border-radius: 100px;
+  padding: 3px;
+}
+
+.cn-script-toggle.visible {
+  display: inline-flex;
+}
+
+.cn-script-btn {
+  border: none;
+  background: transparent;
+  color: #6a0dad;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cn-script-btn:hover {
+  background: rgba(147,112,219,0.15);
+}
+
+.cn-script-btn.active {
+  background: #9370db;
+  color: white;
+}
+
+.cn-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6a0dad;
+  user-select: none;
+}
+
+.cn-toggle input {
+  width: 40px;
+  height: 22px;
+  appearance: none;
+  background: #d8bfd8;
+  border-radius: 11px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.cn-toggle input::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+}
+
+.cn-toggle input:checked {
+  background: #9370db;
+}
+
+.cn-toggle input:checked::before {
+  transform: translateX(18px);
+}
+
+.container.cn-active .cn-translation {
+  display: block;
+}
+
+.cn-translation {
+  display: none;
+  color: #888;
+  font-size: 0.9em;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+</style>
+
+</body>
+</html>
