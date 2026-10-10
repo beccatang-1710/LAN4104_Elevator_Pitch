@@ -265,6 +265,13 @@ table.words tr:nth-child(even) td {
   background: #faf5ff;
 }
 
+.table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
 .learning-objectives {
   background: #f0f7ff;
   border: 1px solid #b3d4fc;
@@ -522,14 +529,75 @@ table.words tr:nth-child(even) td {
 .cta-step ul { margin-bottom: 0; }
 
 @media (max-width: 768px) {
+  .container { padding: 12px; }
+  .page-header { padding: 14px 12px 0; }
+  .page-header h1 { font-size: 19px; line-height: 1.4; }
+  .page-header p { font-size: 14px; }
+  .banner img { max-height: 170px; }
+
+  /* ---------- sticky, horizontally scrollable tab bar ---------- */
+  .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    background: #d8bfd8;
+    border-radius: 10px 10px 0 0;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 12px 14px;
+    font-size: 13px;
+    min-height: 46px;
+    white-space: nowrap;
+    border-radius: 0;
+  }
+  .tab-btn.active { box-shadow: inset 0 -3px 0 #6a0dad; }
+
+  /* ---------- content ---------- */
+  .tab-content { padding: 18px 14px; }
+  .tab-content img { max-width: 100%; height: auto; }
+  h1 { font-size: 20px; }
+  h2 { font-size: 17px; }
+  .learning-objectives,
+  .highlight-box,
+  .task-box { padding: 12px 14px; }
+  .part-badge { font-size: 11px; }
+
+  /* ---------- controls & touch targets ---------- */
+  .controls-bar { padding: 10px 12px; gap: 8px; }
+  .controls-bar .edge-note { white-space: normal; }
+  .controls-bar input[type="range"] { min-width: 90px; max-width: 130px; }
+  .separator { display: none; }
+  .ctrl-btn { padding: 9px 14px; min-height: 40px; }
+  .utterance { flex-wrap: wrap; }
   .accordion-header {
     padding: 14px 16px;
     font-size: 16px;
+    min-height: 48px;
   }
   .accordion-content-inner {
     padding: 16px;
   }
-  .tab-btn { padding: 10px 12px; font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .tab-content { padding: 14px 12px; line-height: 1.65; }
+  .tab-btn { font-size: 12.5px; padding: 12px 12px; }
+  h1 { font-size: 18px; }
+  h2 { font-size: 16px; }
+  h3 { font-size: 15px; }
+  .cn-toggle-wrap {
+    justify-content: center;
+    text-align: center;
+  }
+  .ctrl-btn { font-size: 12.5px; padding: 9px 12px; }
 }
 </style>
 </head>
@@ -582,7 +650,7 @@ table.words tr:nth-child(even) td {
     <button class="tab-btn" onclick="switchTab(5)">CA Sample (IT)</button>
     <button class="tab-btn" onclick="switchTab(6)">CA Notes to Students &amp; Dos &amp; Don'ts</button>
     <button class="tab-btn" onclick="switchTab(7)">Other teaching resources</button>
-    <button class="tab-btn" onclick="switchTab(8)">Intonation Practice</button>
+    <button class="tab-btn" onclick="switchTab(8)">Intonation teaching and practice</button>
     <button class="tab-btn" onclick="switchTab(9)">CA Supplementary Practice 3</button>
     <button class="tab-btn" onclick="switchTab(10)">Drafting Your CA Script</button>
   </div>
@@ -1084,8 +1152,6 @@ table.words tr:nth-child(even) td {
         <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="speakText('Thank you.', this)"></button><span class="spoken" data-cn="「謝謝。」" data-cn-s="「谢谢。」">"Thank you."</span></span></div>
       </div>
     </div>
-    </div>
-
   </div>
 
   <!-- ================= CA NOTES TO STUDENTS ================= -->
@@ -1098,7 +1164,7 @@ table.words tr:nth-child(even) td {
       <p>Key notes, guidelines, and checklist for your CA Elevator Pitch assignment (25%). <span class="cn-translation" data-cn-t="以下為持續評估口頭簡報的關鍵指引及注意事項摘要。" data-cn-s="以下为持续评估口头简报的关键指引及注意事项摘要。">以下為持續評估口頭簡報的關鍵指引及注意事項摘要。</span></p>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:20px 0;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(200px,100%), 1fr)); gap:12px; margin:20px 0;">
       <div style="background:#f8f0ff; border:2px solid #e6d8f0; border-radius:10px; padding:16px; text-align:center;">
         <div style="font-size:0.8em; color:#888; font-weight:600;">DEADLINE <span class="cn-translation" data-cn-t="截止日期" data-cn-s="截止日期">截止日期</span></div>
         <div style="font-size:1.2em; font-weight:700; color:#4b0082;">Lesson 7 @ 23:55</div>
@@ -1159,7 +1225,7 @@ table.words tr:nth-child(even) td {
 
     <div class="card" style="background:white; border-radius:10px; padding:20px; margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
       <h2 style="font-size:1.1em; color:#4b0082; border-bottom:2px solid #9370db; padding-bottom:7px; margin-bottom:14px;">4. Quick Reference: DOs and DON'Ts <span class="cn-translation" data-cn-t="4. 快速參考：應做及不應做" data-cn-s="4. 快速参考：应做及不应做">4. 快速參考：應做及不應做</span></h2>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr)); gap:16px;">
         <div>
           <h3 style="color:#27ae60; font-size:1em; margin-bottom:8px;">✓ DO (Best Practices) <span class="cn-translation" data-cn-t="✓ 應做（最佳實踐）" data-cn-s="✓ 应做（最佳实践）">✓ 應做（最佳實踐）</span></h3>
           <ul style="padding-left:18px; line-height:1.8; font-size:0.93em;">
@@ -1237,9 +1303,8 @@ table.words tr:nth-child(even) td {
 
   <!-- ================= INTONATION PRACTICE ================= -->
   <div class="tab-content" id="tab-8">
-    <span class="part-badge">INTONATION PRACTICE</span>
+    <span class="part-badge">INTONATION PRACTICE</span> <a class="part-badge" href="https://beccatang-1710.github.io/LAN4104_Intonation-volumn-and-pauses-/#1" target="_blank" rel="noopener" style="background:#0b72c6;text-decoration:none">Unit 3_Intonation, pauses and volumn</a>
     <h1 data-cn="投影片的語調" data-cn-s="投影片的语调">Intonation for Pitch Video</h1>
-    <p style="font-size:0.9rem; color:#6a0dad; font-style:italic; margin:0 0 16px 0;" data-cn="鳴謝 Christine Tsang" data-cn-s="鸣谢 Christine Tsang">In acknowledgement of Christine Tsang</p>
 
     <div class="learning-objectives">
       <h3 data-cn="1. 甚麼是語調？" data-cn-s="1. 什么是语调？">1. What is intonation?</h3>
@@ -1560,6 +1625,8 @@ table.words tr:nth-child(even) td {
         </div>
       </div>
     </div>
+
+    <p style="font-size:0.9rem; color:#6a0dad; font-style:italic; margin:16px 0 0 0;" data-cn="鳴謝 Christine Tsang" data-cn-s="鸣谢 Christine Tsang">In acknowledgement of Christine Tsang</p>
   </div>
 
   <!-- ================= CA SUPPLEMENTARY PRACTICE 3 ================= -->
@@ -1918,8 +1985,34 @@ function switchTab(index) {
   buttons.forEach(b => b.classList.remove('active'));
   contents[index].classList.add('active');
   buttons[index].classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    // keep the selected tab visible inside the horizontally scrollable bar
+    const bar = document.querySelector('.tabs');
+    const btn = buttons[index];
+    if (bar && btn && bar.scrollWidth > bar.clientWidth) {
+      const left = btn.offsetLeft - (bar.clientWidth - btn.offsetWidth) / 2;
+      bar.scrollLeft = Math.max(0, left);
+    }
+    // bring the sticky tab bar to the top of the screen (it is already there if stuck)
+    const barTop = bar ? bar.getBoundingClientRect().top : 0;
+    window.scrollTo({
+      top: barTop > 1 ? barTop + window.scrollY : window.scrollY,
+      behavior: 'smooth'
+    });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
+
+// Give each table its own horizontal scroll area so wide tables stay usable on small screens
+document.querySelectorAll('.tab-content table').forEach(function (t) {
+  if (!t.parentNode || t.parentNode.classList.contains('table-scroll')) return;
+  var w = document.createElement('div');
+  w.className = 'table-scroll';
+  t.parentNode.insertBefore(w, t);
+  w.appendChild(t);
+});
 
 function wrapWordsInEl(el) {
   el.normalize();
